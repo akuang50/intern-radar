@@ -1,0 +1,516 @@
+{
+  "lastRefreshed": "2026-09-20T22:02:00.384Z",
+  "previousRefreshed": "2026-09-20T22:00:38.391Z",
+  "listingCount": 368,
+  "llmEnrichment": {
+    "used": false,
+    "updated": 0
+  },
+  "handshake": "Handshake stays paste/CSV/JSON only. No login, cookies, or SSO scrape. Drop exports in data/uploads/ or use the on-site paste box (local to this browser).",
+  "sources": [
+    {
+      "id": "ashby:anthropic",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "ashby:anysphere",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "ashby:groq",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "ashby:linear",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "ashby:mercury",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "ashby:notion",
+      "ok": true,
+      "count": 7,
+      "error": null
+    },
+    {
+      "id": "ashby:openai",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "ashby:perplexity",
+      "ok": true,
+      "count": 5,
+      "error": null
+    },
+    {
+      "id": "ashby:ramp",
+      "ok": true,
+      "count": 1,
+      "error": null
+    },
+    {
+      "id": "ashby:retool",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "ashby:rippling",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "ashby:vercel",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "ashby:watershed",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:affirm",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:airbnb",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:airtable",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:akamai",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:akunacapital",
+      "ok": true,
+      "count": 9,
+      "error": null
+    },
+    {
+      "id": "greenhouse:amd",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:analogdevicesinc",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:andurilindustries",
+      "ok": true,
+      "count": 35,
+      "error": null
+    },
+    {
+      "id": "greenhouse:anthropic",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:anyscale",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:arm",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:asana",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:block",
+      "ok": true,
+      "count": 2,
+      "error": null
+    },
+    {
+      "id": "greenhouse:brex",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:chime",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:cloudflare",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:coinbase",
+      "ok": true,
+      "count": 24,
+      "error": null
+    },
+    {
+      "id": "greenhouse:databricks",
+      "ok": true,
+      "count": 4,
+      "error": null
+    },
+    {
+      "id": "greenhouse:datadog",
+      "ok": true,
+      "count": 8,
+      "error": null
+    },
+    {
+      "id": "greenhouse:discord",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:doordash",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:draftkings",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:dropbox",
+      "ok": true,
+      "count": 1,
+      "error": null
+    },
+    {
+      "id": "greenhouse:drweng",
+      "ok": true,
+      "count": 20,
+      "error": null
+    },
+    {
+      "id": "greenhouse:duolingo",
+      "ok": true,
+      "count": 3,
+      "error": null
+    },
+    {
+      "id": "greenhouse:figma",
+      "ok": true,
+      "count": 6,
+      "error": null
+    },
+    {
+      "id": "greenhouse:ginkgobioworks",
+      "ok": true,
+      "count": 3,
+      "error": null
+    },
+    {
+      "id": "greenhouse:hubspot",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:huggingface",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:janestreet",
+      "ok": true,
+      "count": 50,
+      "error": null
+    },
+    {
+      "id": "greenhouse:notion",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:nvidia",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:openai",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:optiver",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:pinterest",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:plaid",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:qualcomm",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:ramp",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:recordedfuture",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:robinhood",
+      "ok": true,
+      "count": 27,
+      "error": null
+    },
+    {
+      "id": "greenhouse:roblox",
+      "ok": true,
+      "count": 9,
+      "error": null
+    },
+    {
+      "id": "greenhouse:scaleai",
+      "ok": true,
+      "count": 6,
+      "error": null
+    },
+    {
+      "id": "greenhouse:shopify",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:snowflake",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:spacex",
+      "ok": true,
+      "count": 12,
+      "error": null
+    },
+    {
+      "id": "greenhouse:stripe",
+      "ok": true,
+      "count": 19,
+      "error": null
+    },
+    {
+      "id": "greenhouse:tesla",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:toast",
+      "ok": true,
+      "count": 1,
+      "error": null
+    },
+    {
+      "id": "greenhouse:togetherai",
+      "ok": true,
+      "count": 12,
+      "error": null
+    },
+    {
+      "id": "greenhouse:twilio",
+      "ok": true,
+      "count": 1,
+      "error": null
+    },
+    {
+      "id": "greenhouse:wayfair",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:whoopinc",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:anduril",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:appliedintuition",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:canva",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:graviton",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:hudsonrivertrading",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:jumptrading",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:lyft",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:netflix",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:nuro",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:palantir",
+      "ok": true,
+      "count": 74,
+      "error": null
+    },
+    {
+      "id": "lever:reddit",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:spotify",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "lever:thetradedesk",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:two-sigma",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "mit:haystack-reu",
+      "ok": true,
+      "count": 1,
+      "error": null
+    },
+    {
+      "id": "mit:lincoln-lab",
+      "ok": true,
+      "count": 1,
+      "error": null
+    },
+    {
+      "id": "mit:misti",
+      "ok": true,
+      "count": 25,
+      "error": null
+    },
+    {
+      "id": "mit:urop-capd",
+      "ok": true,
+      "count": 2,
+      "error": null
+    },
+    {
+      "id": "uploads:handshake-misti",
+      "ok": true,
+      "count": 0,
+      "error": null
+    }
+  ]
+}

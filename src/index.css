@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --color-paper: #f3efe6;
+  --color-ink: #1b1814;
+  --color-mute: #6f675c;
+  --color-line: #ddd6c8;
+  --color-card: #faf7f1;
+  --color-signal: #0d6b52;
+  --color-signal-soft: #d8efe4;
+  --color-due: #b45309;
+  --color-due-soft: #fde8d0;
+  --color-new: #1d4d8c;
+  --color-new-soft: #d9e6f6;
+  --color-closed: #8a8175;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 420px at 8% -10%, rgb(13 107 82 / 0.08), transparent 55%),
+    radial-gradient(700px 380px at 110% 8%, rgb(29 77 140 / 0.07), transparent 50%);
+  z-index: -1;
+}
+
+::selection {
+  background: rgb(13 107 82 / 0.22);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.scan-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scan-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+  font-weight: 600;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.scan-table td {
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid rgb(221 214 200 / 0.7);
+  vertical-align: top;
+}
+
+.scan-table tr:hover td {
+  background: rgb(255 255 255 / 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
