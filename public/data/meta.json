@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-21T05:40:32.461Z",
-  "previousRefreshed": "2026-09-21T00:05:04.108Z",
-  "listingCount": 500,
+  "lastRefreshed": "2026-09-21T18:28:36.052Z",
+  "previousRefreshed": "2026-09-21T05:40:32.461Z",
+  "listingCount": 501,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -131,7 +131,7 @@
     {
       "id": "greenhouse:andurilindustries",
       "ok": true,
-      "count": 35,
+      "count": 36,
       "error": null
     },
     {
@@ -287,7 +287,7 @@
     {
       "id": "greenhouse:figma",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
@@ -569,7 +569,7 @@
     {
       "id": "greenhouse:twilio",
       "ok": true,
-      "count": 1,
+      "count": 0,
       "error": null
     },
     {
