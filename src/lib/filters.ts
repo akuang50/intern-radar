@@ -1,10 +1,13 @@
-import type { Listing, UserStatus } from "../types";
+import { applyHref } from "./apply";
 import { isDueSoon, isExpired, isNewListing } from "./dates";
+import { sophomoreLabel } from "./sophomore";
+import type { Listing, UserStatus } from "../types";
 
 export type Filters = {
   query: string;
   dueSoon: boolean;
   hideExpired: boolean;
+  sophomoreOnly: boolean;
   workType: string;
   discipline: string;
   source: string;
@@ -12,12 +15,14 @@ export type Filters = {
   skill: string;
   status: string;
   remote: string;
+  tag: string;
 };
 
 export const EMPTY_FILTERS: Filters = {
   query: "",
   dueSoon: false,
   hideExpired: true,
+  sophomoreOnly: false,
   workType: "all",
   discipline: "all",
   source: "all",
@@ -25,6 +30,7 @@ export const EMPTY_FILTERS: Filters = {
   skill: "all",
   status: "all",
   remote: "all",
+  tag: "all",
 };
 
 export function uniqueSorted(values: string[]): string[] {
@@ -37,14 +43,17 @@ export function matches(
   status: UserStatus,
   previousRefreshed: string | null,
 ): boolean {
+  if (!applyHref(listing)) return false;
   if (filters.hideExpired && isExpired(listing.date_due) && status !== "applied" && status !== "saved") {
     return false;
   }
   if (filters.dueSoon && !isDueSoon(listing.date_due)) return false;
+  if (filters.sophomoreOnly && !sophomoreLabel(listing)) return false;
   if (filters.workType !== "all" && listing.work_type !== filters.workType) return false;
   if (filters.discipline !== "all" && listing.discipline !== filters.discipline) return false;
   if (filters.source !== "all" && listing.source !== filters.source) return false;
   if (filters.remote !== "all" && listing.remote_status !== filters.remote) return false;
+  if (filters.tag !== "all" && !(listing.tags || []).includes(filters.tag)) return false;
   if (filters.gradYear !== "all" && !listing.grad_dates_targeted.includes(filters.gradYear)) return false;
   if (filters.skill !== "all") {
     const hit = listing.skills_qualifications.some((s) => s.toLowerCase() === filters.skill.toLowerCase());
@@ -63,6 +72,7 @@ export function matches(
       listing.skills_qualifications.join(" "),
       listing.role_summary,
       listing.location,
+      (listing.tags || []).join(" "),
     ]
       .join(" ")
       .toLowerCase();
@@ -71,7 +81,7 @@ export function matches(
   return true;
 }
 
-export function sortListings(listings: Listing[]): Listing[] {
+export function sortByDue(listings: Listing[]): Listing[] {
   return [...listings].sort((a, b) => {
     const ad = a.date_due ? Date.parse(a.date_due) : Infinity;
     const bd = b.date_due ? Date.parse(b.date_due) : Infinity;

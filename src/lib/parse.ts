@@ -1,3 +1,5 @@
+import { isApplyUrl } from "./apply";
+import { detectSophomore } from "./sophomore";
 import type { Listing } from "../types";
 
 function hashId(s: string) {
@@ -33,15 +35,18 @@ function listingOf(partial: Partial<Listing> & { title?: string; organization?: 
   const title = String(partial.title || "").trim();
   const organization = String(partial.organization || "Unknown org").trim();
   if (!title) return null;
-  const url = String(partial.source_url || "").trim();
+  const url = String(partial.apply_url || partial.source_url || "").trim();
+  if (!isApplyUrl(url)) return null;
   const now = new Date().toISOString();
   const source = partial.source || "Handshake";
+  const blob = `${title} ${partial.role_summary || ""}`;
   return {
     id: `manual:${hashId(`${organization}|${title}|${url}`)}`,
     title,
     organization,
     source,
-    source_url: url || `https://www.joinhandshake.com/`,
+    source_url: url,
+    apply_url: url,
     date_posted: partial.date_posted || now,
     date_due: partial.date_due || null,
     grad_dates_targeted: partial.grad_dates_targeted || [],
@@ -51,6 +56,8 @@ function listingOf(partial: Partial<Listing> & { title?: string; organization?: 
     remote_status: partial.remote_status || "unknown",
     skills_qualifications: partial.skills_qualifications || [],
     role_summary: partial.role_summary || "",
+    tags: partial.tags || [],
+    sophomore_eligible: partial.sophomore_eligible ?? detectSophomore(blob),
     first_seen_at: now,
     last_seen_at: now,
   };

@@ -1,10 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Radar, Search, Upload } from "lucide-react";
+import ApplyButton from "./components/ApplyButton";
+import CalendarView from "./components/CalendarView";
+import ChatPanel from "./components/ChatPanel";
 import PasteModal from "./components/PasteModal";
+import ProfileBar from "./components/ProfileBar";
+import { applyHref } from "./lib/apply";
 import { dueLabel, formatDate, formatWhen, isDueSoon, isExpired, isNewListing } from "./lib/dates";
-import { EMPTY_FILTERS, matches, sortListings, uniqueSorted, type Filters } from "./lib/filters";
+import { EMPTY_FILTERS, matches, sortByDue, uniqueSorted, type Filters } from "./lib/filters";
+import { loadProfile, saveProfile, sortByRelevance } from "./lib/rank";
+import { sophomoreLabel } from "./lib/sophomore";
 import { loadManualListings, loadStatusMap, saveManualListings, saveStatusMap } from "./lib/status";
-import type { Listing, Meta, UserStatus } from "./types";
+import type { Listing, Meta, Profile, UserStatus } from "./types";
 
 const STATUS_OPTIONS: UserStatus[] = ["saved", "applied", "seen", "not-interested"];
 
@@ -43,6 +50,15 @@ function Field({
   );
 }
 
+function withDefaults(listing: Listing): Listing {
+  return {
+    ...listing,
+    apply_url: listing.apply_url || listing.source_url,
+    tags: listing.tags || [],
+    sophomore_eligible: Boolean(listing.sophomore_eligible),
+  };
+}
+
 export default function App() {
   const [listings, setListings] = useState<Listing[]>([]);
   const [meta, setMeta] = useState<Meta | null>(null);
@@ -53,6 +69,9 @@ export default function App() {
   const [manual, setManual] = useState<Listing[]>([]);
   const [openId, setOpenId] = useState<string | null>(null);
   const [pasteOpen, setPasteOpen] = useState(false);
+  const [profile, setProfile] = useState<Profile>(loadProfile);
+  const [sortMode, setSortMode] = useState<"due" | "relevance">("due");
+  const [view, setView] = useState<"list" | "calendar">("list");
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -70,7 +89,7 @@ export default function App() {
       }),
     ])
       .then(([data, info]) => {
-        setListings(Array.isArray(data) ? data : []);
+        setListings((Array.isArray(data) ? data : []).map(withDefaults));
         setMeta(info);
       })
       .catch((err: unknown) => {
@@ -92,7 +111,7 @@ export default function App() {
 
   const merged = useMemo(() => {
     const seen = new Set(listings.map((l) => l.id));
-    return [...listings, ...manual.filter((m) => !seen.has(m.id))];
+    return [...listings, ...manual.map(withDefaults).filter((m) => !seen.has(m.id))].filter((l) => applyHref(l));
   }, [listings, manual]);
 
   const liveSources = meta?.sources.filter((s) => s.ok && s.count > 0) ?? [];
@@ -102,8 +121,16 @@ export default function App() {
     const rows = merged.filter((l) =>
       matches(l, filters, statusFor(l, statusMap, meta?.previousRefreshed ?? null), meta?.previousRefreshed ?? null),
     );
-    return sortListings(rows);
-  }, [merged, filters, statusMap, meta]);
+    if (sortMode === "relevance") return sortByRelevance(rows, profile).map((r) => r.listing);
+    return sortByDue(rows);
+  }, [merged, filters, statusMap, meta, sortMode, profile]);
+
+  const rankedMap = useMemo(() => {
+    const map = new Map<string, string[]>();
+    if (sortMode !== "relevance") return map;
+    for (const row of sortByRelevance(filtered, profile)) map.set(row.listing.id, row.reasons);
+    return map;
+  }, [filtered, profile, sortMode]);
 
   const setStatus = (id: string, status: UserStatus) => {
     const next = { ...statusMap, [id]: status };
@@ -113,6 +140,7 @@ export default function App() {
 
   const dueWeek = merged.filter((l) => isDueSoon(l.date_due)).length;
   const newest = merged.filter((l) => isNewListing(l.first_seen_at, meta?.previousRefreshed ?? null)).length;
+  const sophCount = merged.filter((l) => sophomoreLabel(l)).length;
 
   return (
     <div className="mx-auto min-h-svh max-w-6xl px-4 pb-16 pt-8 sm:px-6">
@@ -123,17 +151,28 @@ export default function App() {
           </p>
           <h1 className="font-display mt-2 max-w-xl text-4xl leading-tight sm:text-5xl">One scan for MIT-relevant internships</h1>
           <p className="mt-3 max-w-xl text-[1.02rem] leading-7 text-mute">
-            Public job boards refresh twice a day. Handshake and MISTI host matches stay paste-only — no login scrape.
+            Public boards refresh twice a day. Handshake stays paste-only. Every card has an Apply link to the original posting.
           </p>
         </div>
         <div className="rounded-2xl bg-card px-4 py-3 ring-1 ring-line">
           <p className="text-[0.7rem] uppercase tracking-[0.1em] text-mute">Last refreshed</p>
           <p className="mt-1 text-lg font-medium">{formatWhen(meta?.lastRefreshed ?? null)}</p>
           <p className="text-sm text-mute">
-            {merged.length} listings · {dueWeek} due in 7 days · {newest} new
+            {merged.length} listings · {dueWeek} due in 7 days · {newest} new · {sophCount} sophomore-tagged
           </p>
         </div>
       </header>
+
+      <div className="mt-8 space-y-4">
+        <ProfileBar
+          profile={profile}
+          onChange={(p) => {
+            setProfile(p);
+            saveProfile(p);
+          }}
+        />
+        <ChatPanel listings={merged} profile={profile} />
+      </div>
 
       <div className="mt-8 rounded-2xl bg-card/80 p-4 ring-1 ring-line backdrop-blur">
         <div className="flex flex-wrap items-center gap-3">
@@ -156,6 +195,13 @@ export default function App() {
           </button>
           <button
             type="button"
+            onClick={() => setFilters({ ...filters, sophomoreOnly: !filters.sophomoreOnly })}
+            className={`rounded-full px-3 py-2 text-sm ${filters.sophomoreOnly ? "bg-new text-white" : "bg-paper ring-1 ring-line"}`}
+          >
+            Sophomore-eligible
+          </button>
+          <button
+            type="button"
             onClick={() => setFilters({ ...filters, hideExpired: !filters.hideExpired })}
             className={`rounded-full px-3 py-2 text-sm ${filters.hideExpired ? "bg-ink text-paper" : "bg-paper ring-1 ring-line"}`}
           >
@@ -170,6 +216,24 @@ export default function App() {
           </button>
         </div>
         <div className="mt-3 flex flex-wrap gap-3">
+          <Field
+            label="Sort"
+            value={sortMode}
+            onChange={(v) => setSortMode(v as "due" | "relevance")}
+            options={[
+              { value: "due", label: "Due date" },
+              { value: "relevance", label: "Relevance" },
+            ]}
+          />
+          <Field
+            label="View"
+            value={view}
+            onChange={(v) => setView(v as "list" | "calendar")}
+            options={[
+              { value: "list", label: "List" },
+              { value: "calendar", label: "Calendar" },
+            ]}
+          />
           <Field
             label="Work type"
             value={filters.workType}
@@ -186,6 +250,15 @@ export default function App() {
             options={[
               { value: "all", label: "All" },
               ...uniqueSorted(merged.map((l) => l.discipline)).map((v) => ({ value: v, label: v })),
+            ]}
+          />
+          <Field
+            label="Tag"
+            value={filters.tag}
+            onChange={(v) => setFilters({ ...filters, tag: v })}
+            options={[
+              { value: "all", label: "All" },
+              ...uniqueSorted(merged.flatMap((l) => l.tags || [])).map((v) => ({ value: v, label: v })),
             ]}
           />
           <Field
@@ -249,16 +322,17 @@ export default function App() {
         <div className="mt-10 rounded-2xl bg-card p-10 ring-1 ring-due">
           <p className="font-display text-2xl">Couldn’t load the radar</p>
           <p className="mt-2 text-mute">{error}</p>
-          <p className="mt-2 text-sm text-mute">
-            If this is GitHub Pages, confirm the site is serving <code>data/listings.json</code> next to the hashed assets.
-          </p>
+        </div>
+      ) : view === "calendar" ? (
+        <div className="mt-6">
+          <CalendarView listings={filtered} />
         </div>
       ) : filtered.length === 0 ? (
         <div className="mt-10 rounded-2xl bg-card p-10 ring-1 ring-line">
           <p className="font-display text-2xl">Nothing in this slice</p>
           <p className="mt-2 max-w-lg text-mute">
             {merged.length
-              ? "Filters are hiding every listing. Clear due-soon, pick All sources, or paste a Handshake export."
+              ? "Filters are hiding every listing. Clear due-soon, pick All sources, or paste a Handshake export with apply URLs."
               : "The feed is empty. Run ingest or paste a Handshake / MISTI export."}
           </p>
           <button
@@ -272,7 +346,7 @@ export default function App() {
       ) : (
         <>
           <p className="mt-6 text-sm text-mute">
-            Sorted by due date · {filtered.length} shown
+            {sortMode === "relevance" ? "Sorted by relevance" : "Sorted by due date"} · {filtered.length} shown · roles without an apply URL are hidden
           </p>
           <div className="mt-3 hidden overflow-hidden rounded-2xl ring-1 ring-line md:block">
             <table className="scan-table bg-card">
@@ -283,7 +357,7 @@ export default function App() {
                   <th>Org</th>
                   <th>Type</th>
                   <th>Skills</th>
-                  <th>Source</th>
+                  <th>Apply</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -291,18 +365,16 @@ export default function App() {
                 {filtered.map((listing) => {
                   const status = statusFor(listing, statusMap, meta?.previousRefreshed ?? null);
                   const open = openId === listing.id;
-                  const due = isDueSoon(listing.date_due);
-                  const expired = isExpired(listing.date_due);
-                  const fresh = isNewListing(listing.first_seen_at, meta?.previousRefreshed ?? null);
                   return (
                     <ListingBlock
                       key={listing.id}
                       listing={listing}
                       status={status}
                       open={open}
-                      due={due}
-                      expired={expired}
-                      fresh={fresh}
+                      due={isDueSoon(listing.date_due)}
+                      expired={isExpired(listing.date_due)}
+                      fresh={isNewListing(listing.first_seen_at, meta?.previousRefreshed ?? null)}
+                      reasons={rankedMap.get(listing.id) || []}
                       onToggle={() => setOpenId(open ? null : listing.id)}
                       onStatus={(s) => setStatus(listing.id, s)}
                     />
@@ -324,6 +396,7 @@ export default function App() {
                     due={isDueSoon(listing.date_due)}
                     expired={isExpired(listing.date_due)}
                     fresh={isNewListing(listing.first_seen_at, meta?.previousRefreshed ?? null)}
+                    reasons={rankedMap.get(listing.id) || []}
                     onToggle={() => setOpenId(open ? null : listing.id)}
                     onStatus={(s) => setStatus(listing.id, s)}
                   />
@@ -343,10 +416,8 @@ export default function App() {
           <p className="mt-1">Skipped (board missing or down): {failedSources.map((s) => s.id).join(", ")}</p>
         ) : null}
         <p className="mt-3 max-w-3xl">
-          Handshake gap: there is no student-public API. Intern Radar will not store passwords, cookies, or SSO
-          sessions. Use CAPD/Handshake CSV or JSON export, paste it here, or commit it to{" "}
-          <code>data/uploads/</code> so Actions can merge it on the next 01:00 / 13:00 UTC sweep. Career-center API
-          access remains a future option.
+          Handshake gap: paste/CSV only. IAP Global Classroom and GTL come from public MISTI pages. Deadlines appear on
+          the calendar only when the posting actually published one.
         </p>
       </footer>
 
@@ -354,7 +425,7 @@ export default function App() {
         open={pasteOpen}
         onClose={() => setPasteOpen(false)}
         onSave={(rows) => {
-          const next = [...rows, ...manual];
+          const next = [...rows.filter((r) => applyHref(r)), ...manual];
           setManual(next);
           saveManualListings(next);
         }}
@@ -370,6 +441,7 @@ function ListingBlock({
   due,
   expired,
   fresh,
+  reasons,
   onToggle,
   onStatus,
 }: {
@@ -379,6 +451,7 @@ function ListingBlock({
   due: boolean;
   expired: boolean;
   fresh: boolean;
+  reasons: string[];
   onToggle: () => void;
   onStatus: (s: UserStatus) => void;
 }) {
@@ -397,8 +470,13 @@ function ListingBlock({
           <div className="mt-1 flex flex-wrap gap-1">
             {fresh ? <Flag className="bg-new-soft text-new">New</Flag> : null}
             {due ? <Flag className="bg-due-soft text-due">Due soon</Flag> : null}
+            {sophomoreLabel(listing) ? <Flag className="bg-new-soft text-new">Sophomore</Flag> : null}
+            {(listing.tags || []).includes("iap") ? <Flag className="bg-signal-soft text-signal">IAP</Flag> : null}
+            {(listing.tags || []).includes("teaching") ? <Flag className="bg-signal-soft text-signal">Teaching</Flag> : null}
+            {(listing.tags || []).includes("gtl") ? <Flag className="bg-signal-soft text-signal">GTL</Flag> : null}
             {expired ? <Flag className="bg-paper text-closed">Closed</Flag> : null}
           </div>
+          {reasons.length ? <p className="mt-1 text-xs text-mute">{reasons.join(" · ")}</p> : null}
         </td>
         <td>{listing.organization}</td>
         <td className="capitalize">
@@ -407,9 +485,7 @@ function ListingBlock({
         </td>
         <td className="max-w-[12rem] text-sm text-mute">{listing.skills_qualifications.slice(0, 4).join(", ") || "—"}</td>
         <td>
-          <a className="text-signal underline-offset-2 hover:underline" href={listing.source_url} target="_blank" rel="noreferrer">
-            {listing.source}
-          </a>
+          <ApplyButton listing={listing} />
         </td>
         <td>
           <StatusSelect value={status} onChange={onStatus} />
@@ -433,6 +509,7 @@ function ListingBody({
   due,
   expired,
   fresh,
+  reasons,
   onToggle,
   onStatus,
 }: {
@@ -442,6 +519,7 @@ function ListingBody({
   due: boolean;
   expired: boolean;
   fresh: boolean;
+  reasons: string[];
   onToggle: () => void;
   onStatus: (s: UserStatus) => void;
 }) {
@@ -459,9 +537,15 @@ function ListingBody({
       <div className="mt-2 flex flex-wrap gap-1">
         {fresh ? <Flag className="bg-new-soft text-new">New</Flag> : null}
         {due ? <Flag className="bg-due-soft text-due">Due soon</Flag> : null}
+        {sophomoreLabel(listing) ? <Flag className="bg-new-soft text-new">Sophomore</Flag> : null}
+        {(listing.tags || []).includes("iap") ? <Flag className="bg-signal-soft text-signal">IAP</Flag> : null}
+        {(listing.tags || []).includes("teaching") ? <Flag className="bg-signal-soft text-signal">Teaching</Flag> : null}
+        {(listing.tags || []).includes("gtl") ? <Flag className="bg-signal-soft text-signal">GTL</Flag> : null}
         <Flag className="bg-signal-soft text-signal">{listing.discipline}</Flag>
       </div>
-      <div className="mt-3">
+      {reasons.length ? <p className="mt-1 text-xs text-mute">{reasons.join(" · ")}</p> : null}
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <ApplyButton listing={listing} />
         <StatusSelect value={status} onChange={onStatus} />
       </div>
       {open ? <Detail listing={listing} /> : null}
@@ -476,13 +560,14 @@ function Detail({ listing }: { listing: Listing }) {
       <p className="mt-2 text-mute">
         Posted {formatDate(listing.date_posted)} · Target grad {listing.grad_dates_targeted.join(", ") || "unspecified"} ·{" "}
         {listing.remote_status} · {listing.location}
+        {(listing.tags || []).length ? ` · ${listing.tags.join(", ")}` : ""}
       </p>
       {listing.skills_qualifications.length ? (
         <p className="mt-1 text-mute">Skills: {listing.skills_qualifications.join(" · ")}</p>
       ) : null}
-      <a className="mt-2 inline-block text-signal underline" href={listing.source_url} target="_blank" rel="noreferrer">
-        Open original posting
-      </a>
+      <div className="mt-3">
+        <ApplyButton listing={listing} />
+      </div>
     </div>
   );
 }

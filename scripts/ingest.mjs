@@ -181,21 +181,46 @@ function looksIntern(title, extra = "") {
   return /\b(intern(?:ship)?s?|co-?ops?|new\s*grads?)\b/i.test(extra);
 }
 
+function isApplyUrl(url) {
+  try {
+    const u = new URL(url);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return false;
+    if (!u.hostname.includes(".")) return false;
+    if (/example\.invalid$|localhost$/i.test(u.hostname)) return false;
+    if (/joinhandshake\.com$/i.test(u.hostname) && (u.pathname === "/" || u.pathname === "")) return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function detectSophomore(text) {
+  const t = String(text || "");
+  if (/\b(seniors? only|rising seniors? only|final[- ]year only)\b/i.test(t)) return false;
+  return /\b(sophomores?\s+welcome|rising juniors?|class of 2028|graduating 2028|all class years|all years welcome|open to all (class )?years|underclassm[ae]n|first[-\s]?years? (and|&|or) sophomores?|no (prior|previous) internships? required|all undergraduates?|any class year)\b/i.test(
+    t,
+  );
+}
+
 function disciplineOf(title, text) {
   const t = `${title} ${text}`.toLowerCase();
+  if (/\b(global teaching|gtl|teaching lab)\b/.test(t)) return "teaching";
+  if (/\b(global classroom|\biap\b)\b/.test(t) && /\bmisti\b/.test(t)) return "misti";
   if (/\bmisti\b/.test(t)) return "misti";
-  if (/\b(policy|public policy|government|geopolitics|international affairs)\b/.test(t)) return "policy";
-  if (/\b(quant|quantitative|trading intern|research intern.*trad)\b/.test(t)) return "quant";
-  if (/\b(hardware|electrical|mechanical|firmware|fpga|asic|silicon|robotics|aerospace)\b/.test(t))
-    return "hardware";
-  if (/\b(research|reu|urop|phd intern|scientist intern)\b/.test(t)) return "research";
-  if (/\b(software|swe|sde|ml intern|data intern|frontend|backend|fullstack|security intern)\b/.test(t))
+  if (/\b(software|swe\b|sde\b|developer intern|frontend|backend|fullstack|full-stack|ml intern|machine learning intern|data intern|security intern|computer science|site reliability|sre intern|engineer intern|engineering intern)\b/.test(t))
     return "swe";
+  if (/\b(quant|quantitative|trading intern|summer analyst)\b/.test(t)) return "quant";
+  if (/\b(hardware|electrical engineer|mechanical engineer|firmware|fpga|asic|silicon intern|robotics intern|aerospace intern)\b/.test(t))
+    return "hardware";
+  if (/\b(public policy|policy intern|geopolitics|international affairs)\b/.test(t)) return "policy";
+  if (/\b(research|reu|urop|phd intern|scientist intern)\b/.test(t)) return "research";
   return "other";
 }
 
 function workTypeOf(title, extra = "") {
   const t = `${title} ${extra}`.toLowerCase();
+  if (/\b(global teaching|gtl)\b/.test(t)) return "teaching";
+  if (/\b(global classroom|\biap\b)\b/.test(t)) return "iap";
   if (/\bco-?op\b/.test(t)) return "co-op";
   if (/\bresearch\b/.test(t) && !/\bintern/.test(t)) return "research";
   if (/\bpart[-\s]?time\b/.test(t)) return "part-time";
@@ -239,15 +264,18 @@ function parseFlexibleDate(raw) {
   if (raw instanceof Date && !Number.isNaN(raw.getTime())) return raw.toISOString();
   const s = String(raw).trim();
   if (!s || /^closed$/i.test(s)) return null;
-  const iso = Date.parse(s);
-  if (!Number.isNaN(iso)) return new Date(iso).toISOString();
   const m = s.match(
     /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s*(20\d{2}))?/i,
   );
   if (m) {
     const year = m[3] ? Number(m[3]) : inferYear(m[1], Number(m[2]));
+    if (year < 2020) return null;
     const d = new Date(Date.UTC(year, monthIndex(m[1]), Number(m[2])));
     return d.toISOString();
+  }
+  if (/^\d{4}-\d{2}-\d{2}/.test(s) || /20\d{2}/.test(s)) {
+    const iso = Date.parse(s);
+    if (!Number.isNaN(iso)) return new Date(iso).toISOString();
   }
   return null;
 }
@@ -278,37 +306,54 @@ function inferYear(monthName, day) {
 }
 
 function extractDue(text, explicit) {
-  const fromExplicit = parseFlexibleDate(explicit);
-  if (fromExplicit) return fromExplicit;
   const body = String(text || "");
   const m = body.match(
-    /\b(deadline|apply by|applications? due|closes? on|closing date)[:\s]+(.{0,40}?)(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}|(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s*20\d{2})/i,
+    /\b(deadline|apply by|applications? due|application closes|closes? on|closing date)[:\s]+(.{0,48}?)(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}|(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s*20\d{2})?)/i,
   );
   if (m) return parseFlexibleDate(m[3]);
-  return null;
+  if (!explicit) return null;
+  const published = parseFlexibleDate(explicit);
+  if (!published) return null;
+  if (!body) return published;
+  const needle = String(explicit).replace(/,.*/, "").toLowerCase();
+  if (needle && body.toLowerCase().includes(needle.slice(0, 12))) return published;
+  return published;
 }
 
 function makeListing(partial, now) {
   const title = String(partial.title || "").trim();
   const organization = String(partial.organization || "").trim();
-  const source_url = canonicalUrl(partial.source_url || "");
+  const apply_url = canonicalUrl(partial.apply_url || partial.source_url || "");
+  const source_url = canonicalUrl(partial.source_url || apply_url);
+  if (!isApplyUrl(apply_url) && !isApplyUrl(source_url)) return null;
+  const href = isApplyUrl(apply_url) ? apply_url : source_url;
   const location = String(partial.location || "").trim() || "Unspecified";
   const blob = `${title} ${partial.role_summary || ""} ${partial.raw || ""}`;
+  const tags = new Set(partial.tags || []);
+  const discipline = partial.discipline || disciplineOf(title, blob);
+  tags.add(discipline);
+  if (partial.work_type) tags.add(partial.work_type);
+  const sophomore_eligible = partial.sophomore_eligible ?? detectSophomore(blob);
+  if (sophomore_eligible) tags.add("sophomore-eligible");
+  const explicitDue = Object.prototype.hasOwnProperty.call(partial, "date_due");
   return {
-    id: `${partial.source}:${hashId(`${organization}|${title}|${source_url}`)}`,
+    id: `${partial.source}:${hashId(`${organization}|${title}|${href}`)}`,
     title,
     organization,
     source: partial.source,
-    source_url,
+    source_url: isApplyUrl(source_url) ? source_url : href,
+    apply_url: href,
     date_posted: parseFlexibleDate(partial.date_posted) || null,
-    date_due: extractDue(blob, partial.date_due),
+    date_due: explicitDue && partial.date_due == null ? null : extractDue(blob, partial.date_due),
     grad_dates_targeted: partial.grad_dates_targeted || extractGradYears(blob),
     work_type: partial.work_type || workTypeOf(title, blob),
-    discipline: partial.discipline || disciplineOf(title, blob),
+    discipline,
     location,
     remote_status: partial.remote_status || remoteOf(location, blob),
     skills_qualifications: partial.skills_qualifications || extractSkills(blob),
     role_summary: partial.role_summary || firstSentences(partial.raw || title),
+    tags: [...tags],
+    sophomore_eligible,
     first_seen_at: partial.first_seen_at || now,
     last_seen_at: now,
   };
@@ -394,6 +439,7 @@ async function greenhouseBoard(board, now) {
           organization: j.company_name || board.name,
           source: "Greenhouse",
           source_url: j.absolute_url,
+          apply_url: j.absolute_url,
           date_posted: j.first_published || j.updated_at,
           date_due: j.application_deadline,
           location: loc,
@@ -402,7 +448,8 @@ async function greenhouseBoard(board, now) {
         },
         now,
       );
-    });
+    })
+    .filter(Boolean);
   return {
     report: { id: `greenhouse:${board.token}`, ok: true, count: listings.length, error: null },
     listings,
@@ -436,6 +483,7 @@ async function leverBoard(board, now) {
           organization: board.name,
           source: "Lever",
           source_url: j.hostedUrl || j.applyUrl,
+          apply_url: j.applyUrl || j.hostedUrl,
           date_posted: j.createdAt ? new Date(j.createdAt).toISOString() : null,
           location: loc,
           work_type: workTypeOf(j.text || "", j.categories?.commitment || ""),
@@ -444,7 +492,8 @@ async function leverBoard(board, now) {
         },
         now,
       );
-    });
+    })
+    .filter(Boolean);
   return {
     report: { id: `lever:${board.token}`, ok: true, count: listings.length, error: null },
     listings,
@@ -472,6 +521,7 @@ async function ashbyBoard(board, now) {
           organization: board.name,
           source: "Ashby",
           source_url: j.jobUrl || j.applyUrl,
+          apply_url: j.applyUrl || j.jobUrl,
           date_posted: j.publishedAt,
           location: loc,
           remote_status: j.workplaceType?.toLowerCase() || remoteOf(loc, j.isRemote ? "remote" : ""),
@@ -480,7 +530,8 @@ async function ashbyBoard(board, now) {
         },
         now,
       );
-    });
+    })
+    .filter(Boolean);
   return {
     report: { id: `ashby:${board.token}`, ok: true, count: listings.length, error: null },
     listings,
@@ -488,7 +539,7 @@ async function ashbyBoard(board, now) {
 }
 
 function nextDeadline(label) {
-  if (!label || /^closed$/i.test(label)) return new Date(Date.now() - 86400000).toISOString();
+  if (!label || /^closed$/i.test(label)) return null;
   return parseFlexibleDate(label);
 }
 
@@ -515,10 +566,13 @@ async function ingestMisti(now) {
         organization: "MIT MISTI",
         source: "MISTI",
         source_url: url,
+        apply_url: "https://mistiapply.mit.edu/",
         date_due: nextDeadline(deadline || "Closed"),
         location: name.replace(/^MIT-/, ""),
         work_type: "internship",
         discipline: "misti",
+        tags: ["misti", "internship", /^closed$/i.test(deadline || "") ? "closed" : ""].filter(Boolean),
+        sophomore_eligible: true,
         grad_dates_targeted: [],
         skills_qualifications: ["language", "culture course", "international"],
         role_summary:
@@ -527,7 +581,7 @@ async function ingestMisti(now) {
       },
       now,
     ),
-  );
+  ).filter(Boolean);
   return {
     report: { id: "mit:misti", ok: res.ok, count: listings.length, error: res.ok ? null : `HTTP ${res.status}` },
     listings,
@@ -539,7 +593,7 @@ async function ingestHaystack(now) {
     "https://www.haystack.mit.edu/haystack-public-outreach/research-experiences-for-undergraduates-reu/";
   const res = await fetchText(url, 15000);
   const text = res.ok ? stripHtml(res.text) : "";
-  const due = extractDue(text, "February 1, 2026") || parseFlexibleDate("February 1, 2026");
+  const due = extractDue(text);
   const listing = makeListing(
     {
       title: "MIT Haystack Observatory REU",
@@ -560,7 +614,7 @@ async function ingestHaystack(now) {
   );
   return {
     report: { id: "mit:haystack-reu", ok: res.ok, count: 1, error: res.ok ? null : `HTTP ${res.status}` },
-    listings: [listing],
+    listings: [listing].filter(Boolean),
   };
 }
 
@@ -590,7 +644,7 @@ async function ingestLincoln(now) {
       count: 1,
       error: res.ok ? null : `HTTP ${res.status}`,
     },
-    listings: [listing],
+    listings: [listing].filter(Boolean),
   };
 }
 
@@ -602,6 +656,7 @@ async function ingestUropCapd(now) {
         organization: "MIT UROP",
         source: "MIT UROP",
         source_url: "https://urop.mit.edu/",
+        apply_url: "https://urop.mit.edu/",
         location: "Cambridge, MA",
         work_type: "research",
         discipline: "research",
@@ -616,6 +671,7 @@ async function ingestUropCapd(now) {
         organization: "MIT CAPD",
         source: "MIT CAPD",
         source_url: "https://capd.mit.edu/jobs-and-internships/",
+        apply_url: "https://capd.mit.edu/jobs-and-internships/",
         location: "Cambridge, MA / Handshake",
         work_type: "internship",
         discipline: "other",
@@ -624,7 +680,7 @@ async function ingestUropCapd(now) {
       },
       now,
     ),
-  ];
+  ].filter(Boolean);
   return { report: { id: "mit:urop-capd", ok: true, count: listings.length, error: null }, listings };
 }
 
@@ -667,13 +723,14 @@ function listingFromUnknown(obj, source, now) {
     obj.organization || obj.employer || obj.company || obj["Employer"] || obj["Company"] || source;
   const url =
     obj.source_url || obj.url || obj.link || obj["Apply URL"] || obj["Job URL"] || obj.applyUrl || "";
-  if (!title || !url && !organization) return null;
+  if (!title || !isApplyUrl(url)) return null;
   return makeListing(
     {
       title,
       organization,
       source: obj.source || source,
-      source_url: url || `https://example.invalid/manual/${hashId(title + organization)}`,
+      source_url: url,
+      apply_url: url,
       date_posted: obj.date_posted || obj["Date Posted"] || obj.posted,
       date_due: obj.date_due || obj.deadline || obj["Apply End"] || obj["Expiration Date"],
       location: obj.location || obj["Location"] || "",
@@ -690,6 +747,174 @@ function listingFromUnknown(obj, source, now) {
     },
     now,
   );
+}
+
+const CLASSROOM_FALLBACK = [
+  ["Systems Thinking for Innovation in Angola", "https://misti.mit.edu/systems-thinking-innovation-angola", "Luanda, Angola", "October 22, 2026"],
+  ["Race, Place, and Modernity in the Americas", "https://misti.mit.edu/race-place-and-modernity-americas", "São Paulo, Brazil", "September 30, 2026"],
+  ["IAP Chinese Abroad", "https://misti.mit.edu/iap-chinese-abroad", "Shanghai, China", "October 12, 2026"],
+  ["Literary London", "https://misti.mit.edu/literary-london", "London, England", "October 1, 2026"],
+  ["Berlin: Cultures and Countercultures", "https://misti.mit.edu/berlin-cultures-and-countercultures", "Berlin, Germany", "September 30, 2026"],
+  ["MIT in Greece", "https://misti.mit.edu/mit-in-greece", "Greece", "October 8, 2026"],
+  ["Urban Futures Lab", "https://misti.mit.edu/urban-futures-lab", "Hong Kong", "October 5, 2026"],
+  ["From the Forum to the Cypher", "https://misti.mit.edu/forum-to-the-cypher", "Rome and Bologna, Italy", "September 30, 2026"],
+  ["The Making of Roman Pompeii", "https://misti.mit.edu/making-roman-pompeii", "Rome and Pompeii, Italy", "October 8, 2026"],
+  ["The Practical Field Lab in Kenya", "https://misti.mit.edu/practical-field-lab-kenya", "Nyeri, Kenya", "October 14, 2026"],
+  ["Acoustic Cue Analysis of Speech in English and Korean", "https://misti.mit.edu/acoustic-cue-analysis-korea", "Seoul, South Korea", "September 24, 2026"],
+  ["Indigenous Environmental Planning - Aotearoa New Zealand", "https://misti.mit.edu/indigenous-environmental-planning", "Auckland, New Zealand", "October 26, 2026"],
+  ["Rambax Senegal Study Tour", "https://misti.mit.edu/rambax-senegal-study-tour", "Dakar, Senegal", "October 1, 2026"],
+  ["21L.590: The Spanish Incubator", "https://misti.mit.edu/spanish-incubator", "Madrid, Spain", "October 14, 2026"],
+];
+
+const GTL_COUNTRIES = [
+  ["MISTI Africa GTL", "https://misti.mit.edu/mit-africa", "Angola, Cape Verde, Ghana, Ivory Coast, South Africa, Botswana, Rwanda"],
+  ["MISTI Korea GTL", "https://misti.mit.edu/mit-korea", "Korea"],
+  ["MISTI South Asia GTL", "https://misti.mit.edu/mit-india", "Bhutan, India"],
+  ["MISTI Eurasia GTL", "https://misti.mit.edu/mit-eurasia", "Armenia, Cyprus, Georgia, Kazakhstan"],
+  ["MISTI Germany GTL", "https://misti.mit.edu/mit-germany", "Germany, Austria"],
+  ["MISTI Italy GTL", "https://misti.mit.edu/mit-italy", "Italy"],
+  ["MISTI Portugal GTL", "https://misti.mit.edu/portugal", "Portugal"],
+  ["MISTI Spain GTL", "https://misti.mit.edu/mit-spain", "Spain, Andorra"],
+  ["MISTI UK GTL", "https://misti.mit.edu/mit-united-kingdom", "England, Scotland, Wales"],
+  ["MISTI Peru GTL", "https://misti.mit.edu/peru", "Peru"],
+  ["MISTI Uruguay GTL", "https://misti.mit.edu/argentina-uruguay", "Uruguay"],
+  ["MISTI Mexico GTL", "https://misti.mit.edu/mit-mexico", "Mexico"],
+];
+
+async function ingestIapPrograms(now) {
+  const classroomUrl = "https://misti.mit.edu/types-programs/global-classroom";
+  const gtlUrl = "https://misti.mit.edu/types-programs/global-teaching-labs";
+  const applyPortal = "https://mistiapply.mit.edu/";
+  let classroomRes = { ok: false, status: 0, text: "" };
+  let gtlRes = { ok: false, status: 0, text: "" };
+  try {
+    [classroomRes, gtlRes] = await Promise.all([fetchText(classroomUrl, 15000), fetchText(gtlUrl, 15000)]);
+  } catch {
+    /* skip */
+  }
+  const classroomText = classroomRes.ok ? stripHtml(classroomRes.text) : "";
+  const gtlText = gtlRes.ok ? stripHtml(gtlRes.text) : "";
+  const listings = [];
+  const gtlDueMatch = gtlText.match(
+    /Final deadline:\s*(?:[A-Za-z]+,\s*)?((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s*20\d{2})/i,
+  );
+  const gtlOpenMatch = gtlText.match(
+    /Application opens:\s*(?:[A-Za-z]+,\s*)?((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s*20\d{2})/i,
+  );
+  const gtlDue = parseFlexibleDate(gtlDueMatch?.[1]) || extractDue(gtlText);
+  const gtlPosted = parseFlexibleDate(gtlOpenMatch?.[1]);
+
+  listings.push(
+    makeListing(
+      {
+        title: "IAP Global Classroom (MISTI)",
+        organization: "MIT MISTI",
+        source: "MISTI IAP",
+        source_url: classroomUrl,
+        apply_url: classroomUrl,
+        date_due: null,
+        location: "IAP abroad",
+        work_type: "iap",
+        discipline: "misti",
+        tags: ["misti", "iap", "global-classroom"],
+        sophomore_eligible: true,
+        skills_qualifications: ["language", "culture", "research"],
+        role_summary:
+          "2–3 week IAP courses abroad with MIT faculty. IAP 2027 programs are listed on the public Global Classroom page; apply on each program page.",
+        raw: classroomText.slice(0, 4000),
+      },
+      now,
+    ),
+  );
+
+  for (const [title, url, location, deadline] of CLASSROOM_FALLBACK) {
+    const idx = classroomText.toLowerCase().indexOf(title.toLowerCase());
+    const slice = idx >= 0 ? classroomText.slice(idx, idx + 700) : "";
+    const scraped = slice.match(
+      /Application (?:Deadline|Closes)[:\s]+((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2})/i,
+    );
+    listings.push(
+      makeListing(
+        {
+          title: `Global Classroom — ${title}`,
+          organization: "MIT MISTI",
+          source: "MISTI IAP",
+          source_url: url,
+          apply_url: url,
+            date_due: parseFlexibleDate(scraped?.[1] ? `${scraped[1]}, 2026` : deadline) || parseFlexibleDate(deadline),
+          location,
+          work_type: "iap",
+          discipline: "misti",
+          tags: ["misti", "iap", "global-classroom"],
+          sophomore_eligible: true,
+          skills_qualifications: ["language", "culture"],
+          role_summary: `IAP 2027 Global Classroom in ${location}. Official program page includes requirements and how to apply.`,
+          raw: `${title} ${deadline} ${slice.slice(0, 400)}`,
+        },
+        now,
+      ),
+    );
+  }
+
+  listings.push(
+    makeListing(
+      {
+        title: "Global Teaching Labs (GTL) — IAP",
+        organization: "MIT MISTI",
+        source: "MISTI GTL",
+        source_url: gtlUrl,
+        apply_url: applyPortal,
+        date_posted: gtlPosted,
+        date_due: gtlDue,
+        location: "IAP teaching abroad",
+        work_type: "teaching",
+        discipline: "teaching",
+        tags: ["misti", "iap", "teaching", "gtl"],
+        sophomore_eligible: true,
+        skills_qualifications: ["teaching", "stem", "communication"],
+        role_summary:
+          "Teach STEM abroad for 3–4 weeks in January. Public MISTI page lists the application window; apply on the MISTI portal. Sophomores are generally eligible; first-years are limited to selected countries.",
+        raw: gtlText.slice(0, 4000),
+      },
+      now,
+    ),
+  );
+
+  for (const [title, url, location] of GTL_COUNTRIES) {
+    listings.push(
+      makeListing(
+        {
+          title,
+          organization: "MIT MISTI",
+          source: "MISTI GTL",
+          source_url: url,
+          apply_url: applyPortal,
+          date_posted: gtlPosted,
+          date_due: gtlDue,
+          location,
+          work_type: "teaching",
+          discipline: "teaching",
+          tags: ["misti", "iap", "teaching", "gtl"],
+          sophomore_eligible: true,
+          skills_qualifications: ["teaching", "stem"],
+          role_summary: `Country GTL placements for IAP. Details on the public country page; apply at ${applyPortal}.`,
+          raw: title,
+        },
+        now,
+      ),
+    );
+  }
+
+  const cleaned = listings.filter(Boolean);
+  return {
+    report: {
+      id: "mit:iap-gtl",
+      ok: Boolean(classroomRes.ok || gtlRes.ok),
+      count: cleaned.length,
+      error: classroomRes.ok || gtlRes.ok ? null : `classroom HTTP ${classroomRes.status}; gtl HTTP ${gtlRes.status}`,
+    },
+    listings: cleaned,
+  };
 }
 
 async function ingestUploads(now) {
@@ -773,7 +998,6 @@ async function enrichWithLlm(listings) {
     for (const row of parsed) {
       const listing = byId.get(row.id);
       if (!listing) continue;
-      if (row.date_due && !listing.date_due) listing.date_due = parseFlexibleDate(row.date_due);
       if (row.role_summary) listing.role_summary = firstSentences(row.role_summary);
       if (Array.isArray(row.skills) && listing.skills_qualifications.length === 0) {
         listing.skills_qualifications = row.skills.slice(0, 8);
@@ -830,6 +1054,13 @@ async function loadMeta() {
   }
 }
 
+function catchBoard(id, promise) {
+  return Promise.resolve(promise).catch((err) => ({
+    report: { id, ok: false, count: 0, error: String(err?.message || err) },
+    listings: [],
+  }));
+}
+
 async function main() {
   const now = nowIso();
   const sources = JSON.parse(await readFile(SOURCES_PATH, "utf8"));
@@ -838,23 +1069,28 @@ async function main() {
   const reports = [];
   const incoming = [];
 
-  const gh = await mapPool(sources.greenhouse, 5, (b) => greenhouseBoard(b, now));
-  const lv = await mapPool(sources.lever, 4, (b) => leverBoard(b, now));
-  const as = await mapPool(sources.ashby, 4, (b) => ashbyBoard(b, now));
+  const gh = await mapPool(sources.greenhouse, 5, (b) =>
+    catchBoard(`greenhouse:${b.token}`, greenhouseBoard(b, now)),
+  );
+  const lv = await mapPool(sources.lever, 4, (b) => catchBoard(`lever:${b.token}`, leverBoard(b, now)));
+  const as = await mapPool(sources.ashby, 4, (b) => catchBoard(`ashby:${b.token}`, ashbyBoard(b, now)));
   const extras = await Promise.all([
-    ingestMisti(now),
-    ingestHaystack(now),
-    ingestLincoln(now),
-    ingestUropCapd(now),
-    ingestUploads(now),
+    catchBoard("mit:misti", ingestMisti(now)),
+    catchBoard("mit:iap-gtl", ingestIapPrograms(now)),
+    catchBoard("mit:haystack-reu", ingestHaystack(now)),
+    catchBoard("mit:lincoln-lab", ingestLincoln(now)),
+    catchBoard("mit:urop-capd", ingestUropCapd(now)),
+    catchBoard("uploads:handshake-misti", ingestUploads(now)),
   ]);
 
   for (const batch of [...gh, ...lv, ...as, ...extras]) {
     reports.push(batch.report);
-    incoming.push(...batch.listings);
+    incoming.push(...batch.listings.filter((l) => l && (isApplyUrl(l.apply_url) || isApplyUrl(l.source_url))));
   }
 
-  const merged = mergeListings(previous, incoming, now);
+  const merged = mergeListings(previous, incoming, now).filter(
+    (l) => isApplyUrl(l.apply_url) || isApplyUrl(l.source_url),
+  );
   const llm = await enrichWithLlm(merged);
   merged.sort((a, b) => {
     const ad = a.date_due ? Date.parse(a.date_due) : Infinity;

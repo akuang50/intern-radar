@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-20T22:02:00.384Z",
-  "previousRefreshed": "2026-09-20T22:00:38.391Z",
-  "listingCount": 368,
+  "lastRefreshed": "2026-09-21T00:05:04.108Z",
+  "previousRefreshed": "2026-09-21T00:04:03.187Z",
+  "listingCount": 375,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -19,6 +19,12 @@
       "ok": false,
       "count": 0,
       "error": "HTTP 404"
+    },
+    {
+      "id": "ashby:cursor",
+      "ok": true,
+      "count": 1,
+      "error": null
     },
     {
       "id": "ashby:groq",
@@ -75,6 +81,12 @@
       "error": "HTTP 404"
     },
     {
+      "id": "ashby:scale",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
       "id": "ashby:vercel",
       "ok": true,
       "count": 0,
@@ -105,12 +117,6 @@
       "error": null
     },
     {
-      "id": "greenhouse:akamai",
-      "ok": false,
-      "count": 0,
-      "error": "HTTP 404"
-    },
-    {
       "id": "greenhouse:akunacapital",
       "ok": true,
       "count": 9,
@@ -123,16 +129,10 @@
       "error": "HTTP 404"
     },
     {
-      "id": "greenhouse:analogdevicesinc",
+      "id": "greenhouse:andurilindustries",
       "ok": false,
       "count": 0,
-      "error": "HTTP 404"
-    },
-    {
-      "id": "greenhouse:andurilindustries",
-      "ok": true,
-      "count": 35,
-      "error": null
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:anthropic",
@@ -142,6 +142,12 @@
     },
     {
       "id": "greenhouse:anyscale",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:appliedintuition",
       "ok": false,
       "count": 0,
       "error": "HTTP 404"
@@ -165,10 +171,22 @@
       "error": null
     },
     {
+      "id": "greenhouse:boxinc",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
       "id": "greenhouse:brex",
       "ok": true,
       "count": 0,
       "error": null
+    },
+    {
+      "id": "greenhouse:broadinstitute",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:chime",
@@ -178,15 +196,27 @@
     },
     {
       "id": "greenhouse:cloudflare",
-      "ok": true,
+      "ok": false,
       "count": 0,
-      "error": null
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:coinbase",
       "ok": true,
       "count": 24,
       "error": null
+    },
+    {
+      "id": "greenhouse:crowdstrike",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:cruise",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:databricks",
@@ -201,10 +231,16 @@
       "error": null
     },
     {
-      "id": "greenhouse:discord",
+      "id": "greenhouse:datagrail",
       "ok": true,
       "count": 0,
       "error": null
+    },
+    {
+      "id": "greenhouse:discord",
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:doordash",
@@ -214,6 +250,12 @@
     },
     {
       "id": "greenhouse:draftkings",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:draper",
       "ok": false,
       "count": 0,
       "error": "HTTP 404"
@@ -237,7 +279,25 @@
       "error": null
     },
     {
+      "id": "greenhouse:elastic",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
       "id": "greenhouse:figma",
+      "ok": true,
+      "count": 6,
+      "error": null
+    },
+    {
+      "id": "greenhouse:fiveringsllc",
+      "ok": true,
+      "count": 5,
+      "error": null
+    },
+    {
+      "id": "greenhouse:flexport",
       "ok": true,
       "count": 6,
       "error": null
@@ -247,6 +307,18 @@
       "ok": true,
       "count": 3,
       "error": null
+    },
+    {
+      "id": "greenhouse:gitlab",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:hashicorp",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:hubspot",
@@ -261,9 +333,45 @@
       "error": "HTTP 404"
     },
     {
-      "id": "greenhouse:janestreet",
+      "id": "greenhouse:imc",
       "ok": true,
-      "count": 50,
+      "count": 18,
+      "error": null
+    },
+    {
+      "id": "greenhouse:instacart",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:intel",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:janestreet",
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
+    },
+    {
+      "id": "greenhouse:lyft",
+      "ok": true,
+      "count": 14,
+      "error": null
+    },
+    {
+      "id": "greenhouse:mitre",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:mongodb",
+      "ok": true,
+      "count": 0,
       "error": null
     },
     {
@@ -279,6 +387,12 @@
       "error": "HTTP 404"
     },
     {
+      "id": "greenhouse:okta",
+      "ok": true,
+      "count": 2,
+      "error": null
+    },
+    {
       "id": "greenhouse:openai",
       "ok": false,
       "count": 0,
@@ -289,6 +403,12 @@
       "ok": true,
       "count": 0,
       "error": null
+    },
+    {
+      "id": "greenhouse:paloaltonetworks",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:pinterest",
@@ -321,6 +441,24 @@
       "error": null
     },
     {
+      "id": "greenhouse:reddit",
+      "ok": true,
+      "count": 0,
+      "error": null
+    },
+    {
+      "id": "greenhouse:relativityspace",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:rivian",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
       "id": "greenhouse:robinhood",
       "ok": true,
       "count": 27,
@@ -328,8 +466,20 @@
     },
     {
       "id": "greenhouse:roblox",
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
+    },
+    {
+      "id": "greenhouse:rocketlab",
       "ok": true,
-      "count": 9,
+      "count": 50,
+      "error": null
+    },
+    {
+      "id": "greenhouse:samsara",
+      "ok": true,
+      "count": 8,
       "error": null
     },
     {
@@ -339,7 +489,31 @@
       "error": null
     },
     {
+      "id": "greenhouse:sentry",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:shieldai",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
       "id": "greenhouse:shopify",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:sig",
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
+    },
+    {
+      "id": "greenhouse:snapchat",
       "ok": false,
       "count": 0,
       "error": "HTTP 404"
@@ -352,15 +526,27 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": true,
-      "count": 12,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
+    },
+    {
+      "id": "greenhouse:spotify",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:square",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:stripe",
-      "ok": true,
-      "count": 19,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:tesla",
@@ -390,10 +576,22 @@
       "id": "greenhouse:wayfair",
       "ok": false,
       "count": 0,
-      "error": "HTTP 404"
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:whoopinc",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "greenhouse:zoom",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:affirm",
       "ok": false,
       "count": 0,
       "error": "HTTP 404"
@@ -411,7 +609,19 @@
       "error": "HTTP 404"
     },
     {
+      "id": "lever:blizzard",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
       "id": "lever:canva",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "lever:duolingo",
       "ok": false,
       "count": 0,
       "error": "HTTP 404"
@@ -465,6 +675,12 @@
       "error": "HTTP 404"
     },
     {
+      "id": "lever:shopify",
+      "ok": false,
+      "count": 0,
+      "error": "HTTP 404"
+    },
+    {
       "id": "lever:spotify",
       "ok": true,
       "count": 0,
@@ -486,6 +702,12 @@
       "id": "mit:haystack-reu",
       "ok": true,
       "count": 1,
+      "error": null
+    },
+    {
+      "id": "mit:iap-gtl",
+      "ok": true,
+      "count": 28,
       "error": null
     },
     {

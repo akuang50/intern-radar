@@ -1,5 +1,5 @@
-export type WorkType = "internship" | "co-op" | "part-time" | "research" | "new-grad";
-export type Discipline = "swe" | "research" | "policy" | "hardware" | "misti" | "quant" | "other";
+export type WorkType = "internship" | "co-op" | "part-time" | "research" | "new-grad" | "iap" | "teaching";
+export type Discipline = "swe" | "research" | "policy" | "hardware" | "misti" | "quant" | "teaching" | "other";
 export type RemoteStatus = "remote" | "hybrid" | "onsite" | "unknown";
 export type UserStatus = "new" | "seen" | "saved" | "applied" | "not-interested";
 
@@ -9,6 +9,7 @@ export type Listing = {
   organization: string;
   source: string;
   source_url: string;
+  apply_url: string;
   date_posted: string | null;
   date_due: string | null;
   grad_dates_targeted: string[];
@@ -18,8 +19,20 @@ export type Listing = {
   remote_status: RemoteStatus | string;
   skills_qualifications: string[];
   role_summary: string;
+  tags: string[];
+  sophomore_eligible: boolean;
   first_seen_at: string;
   last_seen_at: string;
+};
+
+export type Profile = {
+  gradYear: string;
+  skills: string;
+  workType: string;
+  discipline: string;
+  location: string;
+  remote: string;
+  sophomore: boolean;
 };
 
 export type SourceReport = {
