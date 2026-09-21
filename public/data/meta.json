@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-21T00:05:04.108Z",
-  "previousRefreshed": "2026-09-21T00:04:03.187Z",
-  "listingCount": 375,
+  "lastRefreshed": "2026-09-21T05:40:32.461Z",
+  "previousRefreshed": "2026-09-21T00:05:04.108Z",
+  "listingCount": 500,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 35,
+      "error": null
     },
     {
       "id": "greenhouse:anthropic",
@@ -196,9 +196,9 @@
     },
     {
       "id": "greenhouse:cloudflare",
-      "ok": false,
+      "ok": true,
       "count": 0,
-      "error": "This operation was aborted"
+      "error": null
     },
     {
       "id": "greenhouse:coinbase",
@@ -238,9 +238,9 @@
     },
     {
       "id": "greenhouse:discord",
-      "ok": false,
+      "ok": true,
       "count": 0,
-      "error": "This operation was aborted"
+      "error": null
     },
     {
       "id": "greenhouse:doordash",
@@ -352,9 +352,9 @@
     },
     {
       "id": "greenhouse:janestreet",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:lyft",
@@ -466,9 +466,9 @@
     },
     {
       "id": "greenhouse:roblox",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 9,
+      "error": null
     },
     {
       "id": "greenhouse:rocketlab",
@@ -510,7 +510,7 @@
       "id": "greenhouse:sig",
       "ok": false,
       "count": 0,
-      "error": "This operation was aborted"
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:snapchat",
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 12,
+      "error": null
     },
     {
       "id": "greenhouse:spotify",
@@ -544,9 +544,9 @@
     },
     {
       "id": "greenhouse:stripe",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 19,
+      "error": null
     },
     {
       "id": "greenhouse:tesla",
@@ -576,7 +576,7 @@
       "id": "greenhouse:wayfair",
       "ok": false,
       "count": 0,
-      "error": "This operation was aborted"
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:whoopinc",
