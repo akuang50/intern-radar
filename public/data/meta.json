@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-21T18:28:36.052Z",
-  "previousRefreshed": "2026-09-21T05:40:32.461Z",
-  "listingCount": 501,
+  "lastRefreshed": "2026-09-22T05:37:51.827Z",
+  "previousRefreshed": "2026-09-21T18:28:36.052Z",
+  "listingCount": 446,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -203,7 +203,7 @@
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 24,
+      "count": 26,
       "error": null
     },
     {
@@ -352,9 +352,9 @@
     },
     {
       "id": "greenhouse:janestreet",
-      "ok": true,
-      "count": 50,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:lyft",
@@ -389,7 +389,7 @@
     {
       "id": "greenhouse:okta",
       "ok": true,
-      "count": 2,
+      "count": 3,
       "error": null
     },
     {
@@ -478,9 +478,9 @@
     },
     {
       "id": "greenhouse:samsara",
-      "ok": true,
-      "count": 8,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:scaleai",
