@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-23T17:42:21.805Z",
-  "previousRefreshed": "2026-09-23T05:23:08.459Z",
-  "listingCount": 505,
+  "lastRefreshed": "2026-09-24T05:39:27.427Z",
+  "previousRefreshed": "2026-09-23T17:42:21.805Z",
+  "listingCount": 400,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -65,7 +65,7 @@
     {
       "id": "ashby:ramp",
       "ok": true,
-      "count": 1,
+      "count": 5,
       "error": null
     },
     {
@@ -173,7 +173,7 @@
     {
       "id": "greenhouse:boxinc",
       "ok": true,
-      "count": 0,
+      "count": 1,
       "error": null
     },
     {
@@ -287,7 +287,7 @@
     {
       "id": "greenhouse:figma",
       "ok": true,
-      "count": 8,
+      "count": 9,
       "error": null
     },
     {
@@ -335,7 +335,7 @@
     {
       "id": "greenhouse:imc",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -352,9 +352,9 @@
     },
     {
       "id": "greenhouse:janestreet",
-      "ok": true,
-      "count": 50,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:lyft",
@@ -467,14 +467,14 @@
     {
       "id": "greenhouse:roblox",
       "ok": true,
-      "count": 9,
+      "count": 6,
       "error": null
     },
     {
       "id": "greenhouse:rocketlab",
-      "ok": true,
-      "count": 50,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:samsara",
@@ -485,7 +485,7 @@
     {
       "id": "greenhouse:scaleai",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": true,
-      "count": 12,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:spotify",
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 74,
+      "count": 76,
       "error": null
     },
     {
