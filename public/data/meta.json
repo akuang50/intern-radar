@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-24T17:44:22.428Z",
-  "previousRefreshed": "2026-09-24T05:39:27.427Z",
-  "listingCount": 428,
+  "lastRefreshed": "2026-09-25T05:36:57.014Z",
+  "previousRefreshed": "2026-09-24T17:44:22.428Z",
+  "listingCount": 517,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -47,7 +47,7 @@
     {
       "id": "ashby:notion",
       "ok": true,
-      "count": 7,
+      "count": 8,
       "error": null
     },
     {
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 33,
+      "error": null
     },
     {
       "id": "greenhouse:anthropic",
@@ -150,7 +150,7 @@
       "id": "greenhouse:appliedintuition",
       "ok": false,
       "count": 0,
-      "error": "This operation was aborted"
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:arm",
@@ -352,14 +352,14 @@
     },
     {
       "id": "greenhouse:janestreet",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:lyft",
       "ok": true,
-      "count": 14,
+      "count": 15,
       "error": null
     },
     {
@@ -389,7 +389,7 @@
     {
       "id": "greenhouse:okta",
       "ok": true,
-      "count": 3,
+      "count": 2,
       "error": null
     },
     {
@@ -479,7 +479,7 @@
     {
       "id": "greenhouse:samsara",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 20,
+      "count": 21,
       "error": null
     },
     {
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 76,
+      "count": 79,
       "error": null
     },
     {
