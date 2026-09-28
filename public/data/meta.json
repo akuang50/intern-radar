@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-28T06:06:55.454Z",
-  "previousRefreshed": "2026-09-27T17:29:10.253Z",
-  "listingCount": 434,
+  "lastRefreshed": "2026-09-28T19:59:19.384Z",
+  "previousRefreshed": "2026-09-28T06:06:55.454Z",
+  "listingCount": 348,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -144,7 +144,7 @@
       "id": "greenhouse:anyscale",
       "ok": false,
       "count": 0,
-      "error": "HTTP 404"
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:appliedintuition",
@@ -173,7 +173,7 @@
     {
       "id": "greenhouse:boxinc",
       "ok": true,
-      "count": 1,
+      "count": 0,
       "error": null
     },
     {
@@ -202,9 +202,9 @@
     },
     {
       "id": "greenhouse:coinbase",
-      "ok": true,
-      "count": 26,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:crowdstrike",
@@ -226,9 +226,9 @@
     },
     {
       "id": "greenhouse:datadog",
-      "ok": true,
-      "count": 8,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:datagrail",
@@ -335,7 +335,7 @@
     {
       "id": "greenhouse:imc",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -352,9 +352,9 @@
     },
     {
       "id": "greenhouse:janestreet",
-      "ok": true,
-      "count": 50,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:lyft",
