@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-29T06:24:37.526Z",
-  "previousRefreshed": "2026-09-28T19:59:19.384Z",
-  "listingCount": 520,
+  "lastRefreshed": "2026-09-29T18:27:32.730Z",
+  "previousRefreshed": "2026-09-29T06:24:37.526Z",
+  "listingCount": 439,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -358,9 +358,9 @@
     },
     {
       "id": "greenhouse:lyft",
-      "ok": true,
-      "count": 18,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:mitre",
@@ -461,7 +461,7 @@
     {
       "id": "greenhouse:robinhood",
       "ok": true,
-      "count": 27,
+      "count": 26,
       "error": null
     },
     {
@@ -472,9 +472,9 @@
     },
     {
       "id": "greenhouse:rocketlab",
-      "ok": true,
-      "count": 50,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:samsara",
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": true,
-      "count": 12,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:spotify",
