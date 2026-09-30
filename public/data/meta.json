@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-29T18:27:32.730Z",
-  "previousRefreshed": "2026-09-29T06:24:37.526Z",
-  "listingCount": 439,
+  "lastRefreshed": "2026-09-30T06:10:27.927Z",
+  "previousRefreshed": "2026-09-29T18:27:32.730Z",
+  "listingCount": 472,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -131,7 +131,7 @@
     {
       "id": "greenhouse:andurilindustries",
       "ok": true,
-      "count": 33,
+      "count": 34,
       "error": null
     },
     {
@@ -167,7 +167,7 @@
     {
       "id": "greenhouse:block",
       "ok": true,
-      "count": 0,
+      "count": 2,
       "error": null
     },
     {
@@ -178,9 +178,9 @@
     },
     {
       "id": "greenhouse:brex",
-      "ok": true,
+      "ok": false,
       "count": 0,
-      "error": null
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:broadinstitute",
@@ -352,15 +352,15 @@
     },
     {
       "id": "greenhouse:janestreet",
-      "ok": true,
-      "count": 50,
-      "error": null
-    },
-    {
-      "id": "greenhouse:lyft",
       "ok": false,
       "count": 0,
       "error": "This operation was aborted"
+    },
+    {
+      "id": "greenhouse:lyft",
+      "ok": true,
+      "count": 18,
+      "error": null
     },
     {
       "id": "greenhouse:mitre",
@@ -389,7 +389,7 @@
     {
       "id": "greenhouse:okta",
       "ok": true,
-      "count": 2,
+      "count": 1,
       "error": null
     },
     {
@@ -461,7 +461,7 @@
     {
       "id": "greenhouse:robinhood",
       "ok": true,
-      "count": 26,
+      "count": 27,
       "error": null
     },
     {
@@ -472,9 +472,9 @@
     },
     {
       "id": "greenhouse:rocketlab",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:samsara",
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 12,
+      "error": null
     },
     {
       "id": "greenhouse:spotify",
