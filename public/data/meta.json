@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-01T06:41:48.052Z",
-  "previousRefreshed": "2026-09-30T18:16:33.036Z",
-  "listingCount": 524,
+  "lastRefreshed": "2026-10-01T18:41:39.042Z",
+  "previousRefreshed": "2026-10-01T06:41:48.052Z",
+  "listingCount": 547,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -269,7 +269,7 @@
     {
       "id": "greenhouse:drweng",
       "ok": true,
-      "count": 21,
+      "count": 20,
       "error": null
     },
     {
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 0,
+      "count": 20,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 22,
+      "count": 26,
       "error": null
     },
     {
