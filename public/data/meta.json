@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-09-30T18:16:33.036Z",
-  "previousRefreshed": "2026-09-30T06:10:27.927Z",
-  "listingCount": 460,
+  "lastRefreshed": "2026-10-01T06:41:48.052Z",
+  "previousRefreshed": "2026-09-30T18:16:33.036Z",
+  "listingCount": 524,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -65,7 +65,7 @@
     {
       "id": "ashby:ramp",
       "ok": true,
-      "count": 5,
+      "count": 6,
       "error": null
     },
     {
@@ -203,7 +203,7 @@
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 26,
+      "count": 27,
       "error": null
     },
     {
@@ -275,7 +275,7 @@
     {
       "id": "greenhouse:duolingo",
       "ok": true,
-      "count": 3,
+      "count": 1,
       "error": null
     },
     {
@@ -335,7 +335,7 @@
     {
       "id": "greenhouse:imc",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -472,9 +472,9 @@
     },
     {
       "id": "greenhouse:rocketlab",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:samsara",
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 12,
+      "error": null
     },
     {
       "id": "greenhouse:spotify",
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 21,
+      "count": 22,
       "error": null
     },
     {
