@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-03T05:54:36.611Z",
-  "previousRefreshed": "2026-10-02T18:12:42.740Z",
-  "listingCount": 518,
+  "lastRefreshed": "2026-10-03T16:58:55.151Z",
+  "previousRefreshed": "2026-10-03T05:54:36.611Z",
+  "listingCount": 554,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 36,
+      "error": null
     },
     {
       "id": "greenhouse:anthropic",
