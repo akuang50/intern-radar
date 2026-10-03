@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-02T18:12:42.740Z",
-  "previousRefreshed": "2026-10-02T06:27:51.056Z",
-  "listingCount": 553,
+  "lastRefreshed": "2026-10-03T05:54:36.611Z",
+  "previousRefreshed": "2026-10-02T18:12:42.740Z",
+  "listingCount": 518,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,7 +101,7 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 0,
+      "count": 2,
       "error": null
     },
     {
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": true,
-      "count": 35,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:anthropic",
@@ -287,7 +287,7 @@
     {
       "id": "greenhouse:figma",
       "ok": true,
-      "count": 9,
+      "count": 8,
       "error": null
     },
     {
@@ -359,7 +359,7 @@
     {
       "id": "greenhouse:lyft",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
@@ -683,7 +683,7 @@
     {
       "id": "lever:spotify",
       "ok": true,
-      "count": 2,
+      "count": 1,
       "error": null
     },
     {
