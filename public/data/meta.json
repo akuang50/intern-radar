@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-04T06:31:28.338Z",
-  "previousRefreshed": "2026-10-03T16:58:55.151Z",
-  "listingCount": 554,
+  "lastRefreshed": "2026-10-04T17:17:32.515Z",
+  "previousRefreshed": "2026-10-04T06:31:28.338Z",
+  "listingCount": 542,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": true,
-      "count": 12,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:spotify",
