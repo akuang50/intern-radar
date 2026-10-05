@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-05T06:25:30.242Z",
-  "previousRefreshed": "2026-10-04T17:17:32.515Z",
-  "listingCount": 554,
+  "lastRefreshed": "2026-10-05T21:08:02.207Z",
+  "previousRefreshed": "2026-10-05T06:25:30.242Z",
+  "listingCount": 558,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -197,7 +197,7 @@
     {
       "id": "greenhouse:cloudflare",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     },
     {
@@ -275,7 +275,7 @@
     {
       "id": "greenhouse:duolingo",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     },
     {
@@ -287,7 +287,7 @@
     {
       "id": "greenhouse:figma",
       "ok": true,
-      "count": 8,
+      "count": 9,
       "error": null
     },
     {
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
