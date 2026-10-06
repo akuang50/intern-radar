@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-06T07:01:19.687Z",
-  "previousRefreshed": "2026-10-05T21:08:02.207Z",
-  "listingCount": 565,
+  "lastRefreshed": "2026-10-06T18:46:06.545Z",
+  "previousRefreshed": "2026-10-06T07:01:19.687Z",
+  "listingCount": 564,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -107,7 +107,7 @@
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     },
     {
@@ -322,9 +322,9 @@
     },
     {
       "id": "greenhouse:hubspot",
-      "ok": true,
+      "ok": false,
       "count": 0,
-      "error": null
+      "error": "HTTP 404"
     },
     {
       "id": "greenhouse:huggingface",
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
@@ -683,7 +683,7 @@
     {
       "id": "lever:spotify",
       "ok": true,
-      "count": 1,
+      "count": 0,
       "error": null
     },
     {
