@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-05T21:08:02.207Z",
-  "previousRefreshed": "2026-10-05T06:25:30.242Z",
-  "listingCount": 558,
+  "lastRefreshed": "2026-10-06T07:01:19.687Z",
+  "previousRefreshed": "2026-10-05T21:08:02.207Z",
+  "listingCount": 565,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -131,7 +131,7 @@
     {
       "id": "greenhouse:andurilindustries",
       "ok": true,
-      "count": 36,
+      "count": 41,
       "error": null
     },
     {
@@ -197,7 +197,7 @@
     {
       "id": "greenhouse:cloudflare",
       "ok": true,
-      "count": 2,
+      "count": 4,
       "error": null
     },
     {
