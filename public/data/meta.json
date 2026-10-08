@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-08T06:50:29.498Z",
-  "previousRefreshed": "2026-10-07T19:12:16.863Z",
-  "listingCount": 567,
+  "lastRefreshed": "2026-10-08T19:08:37.667Z",
+  "previousRefreshed": "2026-10-08T06:50:29.498Z",
+  "listingCount": 571,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -335,7 +335,7 @@
     {
       "id": "greenhouse:imc",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
@@ -467,7 +467,7 @@
     {
       "id": "greenhouse:roblox",
       "ok": true,
-      "count": 6,
+      "count": 9,
       "error": null
     },
     {
