@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-09T18:39:02.079Z",
-  "previousRefreshed": "2026-10-09T06:58:58.790Z",
-  "listingCount": 575,
+  "lastRefreshed": "2026-10-10T06:32:44.311Z",
+  "previousRefreshed": "2026-10-09T18:39:02.079Z",
+  "listingCount": 578,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,7 +101,7 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 4,
+      "count": 5,
       "error": null
     },
     {
@@ -221,7 +221,7 @@
     {
       "id": "greenhouse:databricks",
       "ok": true,
-      "count": 15,
+      "count": 17,
       "error": null
     },
     {
