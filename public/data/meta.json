@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-12T06:47:06.418Z",
-  "previousRefreshed": "2026-10-11T17:54:16.938Z",
-  "listingCount": 578,
+  "lastRefreshed": "2026-10-12T21:33:11.494Z",
+  "previousRefreshed": "2026-10-12T06:47:06.418Z",
+  "listingCount": 577,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -47,7 +47,7 @@
     {
       "id": "ashby:notion",
       "ok": true,
-      "count": 8,
+      "count": 7,
       "error": null
     },
     {
@@ -221,7 +221,7 @@
     {
       "id": "greenhouse:databricks",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -269,7 +269,7 @@
     {
       "id": "greenhouse:drweng",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
