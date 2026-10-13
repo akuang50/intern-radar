@@ -1,6 +1,6 @@
 {
-  "lastRefreshed": "2026-10-13T07:13:42.826Z",
-  "previousRefreshed": "2026-10-12T21:33:11.494Z",
+  "lastRefreshed": "2026-10-13T19:44:53.383Z",
+  "previousRefreshed": "2026-10-13T07:13:42.826Z",
   "listingCount": 572,
   "llmEnrichment": {
     "used": false,
@@ -107,7 +107,7 @@
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 2,
+      "count": 1,
       "error": null
     },
     {
@@ -287,7 +287,7 @@
     {
       "id": "greenhouse:figma",
       "ok": true,
-      "count": 10,
+      "count": 11,
       "error": null
     },
     {
