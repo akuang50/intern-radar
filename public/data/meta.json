@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-12T21:33:11.494Z",
-  "previousRefreshed": "2026-10-12T06:47:06.418Z",
-  "listingCount": 577,
+  "lastRefreshed": "2026-10-13T07:13:42.826Z",
+  "previousRefreshed": "2026-10-12T21:33:11.494Z",
+  "listingCount": 572,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -197,7 +197,7 @@
     {
       "id": "greenhouse:cloudflare",
       "ok": true,
-      "count": 4,
+      "count": 3,
       "error": null
     },
     {
@@ -563,7 +563,7 @@
     {
       "id": "greenhouse:togetherai",
       "ok": true,
-      "count": 12,
+      "count": 8,
       "error": null
     },
     {
