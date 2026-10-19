@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-19T05:29:54.460Z",
-  "previousRefreshed": "2026-10-18T16:20:49.259Z",
-  "listingCount": 556,
+  "lastRefreshed": "2026-10-19T19:00:36.846Z",
+  "previousRefreshed": "2026-10-19T05:29:54.460Z",
+  "listingCount": 551,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -119,7 +119,7 @@
     {
       "id": "greenhouse:akunacapital",
       "ok": true,
-      "count": 9,
+      "count": 8,
       "error": null
     },
     {
@@ -203,7 +203,7 @@
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 27,
+      "count": 26,
       "error": null
     },
     {
@@ -485,7 +485,7 @@
     {
       "id": "greenhouse:scaleai",
       "ok": true,
-      "count": 7,
+      "count": 8,
       "error": null
     },
     {
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 79,
+      "count": 75,
       "error": null
     },
     {
