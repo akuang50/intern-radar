@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-21T05:32:58.475Z",
-  "previousRefreshed": "2026-10-20T17:46:28.040Z",
-  "listingCount": 554,
+  "lastRefreshed": "2026-10-21T17:54:34.633Z",
+  "previousRefreshed": "2026-10-21T05:32:58.475Z",
+  "listingCount": 504,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": true,
-      "count": 50,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:anthropic",
@@ -700,9 +700,9 @@
     },
     {
       "id": "mit:haystack-reu",
-      "ok": true,
+      "ok": false,
       "count": 1,
-      "error": null
+      "error": "HTTP 401"
     },
     {
       "id": "mit:iap-gtl",
