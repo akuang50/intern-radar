@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-20T17:46:28.040Z",
-  "previousRefreshed": "2026-10-20T05:33:38.119Z",
-  "listingCount": 492,
+  "lastRefreshed": "2026-10-21T05:32:58.475Z",
+  "previousRefreshed": "2026-10-20T17:46:28.040Z",
+  "listingCount": 554,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -107,7 +107,7 @@
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 1,
+      "count": 2,
       "error": null
     },
     {
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:anthropic",
@@ -221,7 +221,7 @@
     {
       "id": "greenhouse:databricks",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
@@ -269,7 +269,7 @@
     {
       "id": "greenhouse:drweng",
       "ok": true,
-      "count": 14,
+      "count": 13,
       "error": null
     },
     {
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 12,
+      "error": null
     },
     {
       "id": "greenhouse:spotify",
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 79,
+      "count": 80,
       "error": null
     },
     {
