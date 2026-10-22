@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-22T05:36:50.908Z",
-  "previousRefreshed": "2026-10-21T17:54:34.633Z",
-  "listingCount": 552,
+  "lastRefreshed": "2026-10-22T17:50:55.791Z",
+  "previousRefreshed": "2026-10-22T05:36:50.908Z",
+  "listingCount": 551,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -203,7 +203,7 @@
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 27,
+      "count": 26,
       "error": null
     },
     {
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
@@ -430,9 +430,9 @@
     },
     {
       "id": "greenhouse:ramp",
-      "ok": false,
+      "ok": true,
       "count": 0,
-      "error": "HTTP 404"
+      "error": null
     },
     {
       "id": "greenhouse:recordedfuture",
@@ -563,7 +563,7 @@
     {
       "id": "greenhouse:togetherai",
       "ok": true,
-      "count": 12,
+      "count": 13,
       "error": null
     },
     {
