@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-21T17:54:34.633Z",
-  "previousRefreshed": "2026-10-21T05:32:58.475Z",
-  "listingCount": 504,
+  "lastRefreshed": "2026-10-22T05:36:50.908Z",
+  "previousRefreshed": "2026-10-21T17:54:34.633Z",
+  "listingCount": 552,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,7 +101,7 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 5,
+      "count": 6,
       "error": null
     },
     {
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:anthropic",
@@ -203,7 +203,7 @@
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 26,
+      "count": 27,
       "error": null
     },
     {
@@ -287,7 +287,7 @@
     {
       "id": "greenhouse:figma",
       "ok": true,
-      "count": 11,
+      "count": 10,
       "error": null
     },
     {
@@ -299,7 +299,7 @@
     {
       "id": "greenhouse:flexport",
       "ok": true,
-      "count": 5,
+      "count": 3,
       "error": null
     },
     {
@@ -359,7 +359,7 @@
     {
       "id": "greenhouse:lyft",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
@@ -700,9 +700,9 @@
     },
     {
       "id": "mit:haystack-reu",
-      "ok": false,
+      "ok": true,
       "count": 1,
-      "error": "HTTP 401"
+      "error": null
     },
     {
       "id": "mit:iap-gtl",
