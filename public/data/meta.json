@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-23T05:35:02.024Z",
-  "previousRefreshed": "2026-10-22T17:50:55.791Z",
-  "listingCount": 560,
+  "lastRefreshed": "2026-10-23T17:42:57.276Z",
+  "previousRefreshed": "2026-10-23T05:35:02.024Z",
+  "listingCount": 549,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,13 +101,13 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 2,
+      "count": 1,
       "error": null
     },
     {
@@ -227,7 +227,7 @@
     {
       "id": "greenhouse:datadog",
       "ok": true,
-      "count": 8,
+      "count": 7,
       "error": null
     },
     {
@@ -371,7 +371,7 @@
     {
       "id": "greenhouse:mongodb",
       "ok": true,
-      "count": 1,
+      "count": 3,
       "error": null
     },
     {
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": true,
-      "count": 12,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:spotify",
