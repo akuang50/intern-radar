@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-26T05:36:25.877Z",
-  "previousRefreshed": "2026-10-25T16:57:36.458Z",
-  "listingCount": 562,
+  "lastRefreshed": "2026-10-26T19:01:29.107Z",
+  "previousRefreshed": "2026-10-26T05:36:25.877Z",
+  "listingCount": 571,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -479,7 +479,7 @@
     {
       "id": "greenhouse:samsara",
       "ok": true,
-      "count": 8,
+      "count": 16,
       "error": null
     },
     {
@@ -563,7 +563,7 @@
     {
       "id": "greenhouse:togetherai",
       "ok": true,
-      "count": 13,
+      "count": 14,
       "error": null
     },
     {
