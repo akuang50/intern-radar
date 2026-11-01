@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-10-31T17:30:06.686Z",
-  "previousRefreshed": "2026-10-31T06:28:19.209Z",
-  "listingCount": 576,
+  "lastRefreshed": "2026-11-01T06:59:50.514Z",
+  "previousRefreshed": "2026-10-31T17:30:06.686Z",
+  "listingCount": 577,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 85,
+      "count": 86,
       "error": null
     },
     {
