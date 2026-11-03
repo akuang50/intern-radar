@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-02T22:08:50.743Z",
-  "previousRefreshed": "2026-11-02T06:59:09.929Z",
-  "listingCount": 531,
+  "lastRefreshed": "2026-11-03T07:24:31.593Z",
+  "previousRefreshed": "2026-11-02T22:08:50.743Z",
+  "listingCount": 580,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:anthropic",
@@ -467,7 +467,7 @@
     {
       "id": "greenhouse:roblox",
       "ok": true,
-      "count": 8,
+      "count": 7,
       "error": null
     },
     {
