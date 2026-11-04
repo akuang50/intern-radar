@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-04T07:05:55.247Z",
-  "previousRefreshed": "2026-11-03T19:57:16.191Z",
-  "listingCount": 577,
+  "lastRefreshed": "2026-11-04T20:17:05.281Z",
+  "previousRefreshed": "2026-11-04T07:05:55.247Z",
+  "listingCount": 565,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -287,7 +287,7 @@
     {
       "id": "greenhouse:figma",
       "ok": true,
-      "count": 10,
+      "count": 11,
       "error": null
     },
     {
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -479,7 +479,7 @@
     {
       "id": "greenhouse:samsara",
       "ok": true,
-      "count": 18,
+      "count": 16,
       "error": null
     },
     {
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": true,
-      "count": 12,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "This operation was aborted"
     },
     {
       "id": "greenhouse:spotify",
