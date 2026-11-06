@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-05T20:28:11.991Z",
-  "previousRefreshed": "2026-11-05T07:34:10.759Z",
-  "listingCount": 578,
+  "lastRefreshed": "2026-11-06T07:30:00.332Z",
+  "previousRefreshed": "2026-11-05T20:28:11.991Z",
+  "listingCount": 579,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -203,7 +203,7 @@
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 27,
+      "count": 26,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 33,
+      "count": 35,
       "error": null
     },
     {
