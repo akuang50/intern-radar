@@ -1,6 +1,6 @@
 {
-  "lastRefreshed": "2026-11-06T07:30:00.332Z",
-  "previousRefreshed": "2026-11-05T20:28:11.991Z",
+  "lastRefreshed": "2026-11-06T19:50:52.686Z",
+  "previousRefreshed": "2026-11-06T07:30:00.332Z",
   "listingCount": 579,
   "llmEnrichment": {
     "used": false,
@@ -47,7 +47,7 @@
     {
       "id": "ashby:notion",
       "ok": true,
-      "count": 6,
+      "count": 8,
       "error": null
     },
     {
@@ -65,7 +65,7 @@
     {
       "id": "ashby:ramp",
       "ok": true,
-      "count": 5,
+      "count": 6,
       "error": null
     },
     {
@@ -197,7 +197,7 @@
     {
       "id": "greenhouse:cloudflare",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
@@ -335,7 +335,7 @@
     {
       "id": "greenhouse:imc",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 35,
+      "count": 36,
       "error": null
     },
     {
@@ -563,7 +563,7 @@
     {
       "id": "greenhouse:togetherai",
       "ok": true,
-      "count": 12,
+      "count": 7,
       "error": null
     },
     {
