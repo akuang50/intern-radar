@@ -1,6 +1,6 @@
 {
-  "lastRefreshed": "2026-11-06T19:50:52.686Z",
-  "previousRefreshed": "2026-11-06T07:30:00.332Z",
+  "lastRefreshed": "2026-11-07T06:43:07.546Z",
+  "previousRefreshed": "2026-11-06T19:50:52.686Z",
   "listingCount": 579,
   "llmEnrichment": {
     "used": false,
@@ -269,7 +269,7 @@
     {
       "id": "greenhouse:drweng",
       "ok": true,
-      "count": 13,
+      "count": 12,
       "error": null
     },
     {
@@ -413,7 +413,7 @@
     {
       "id": "greenhouse:pinterest",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
