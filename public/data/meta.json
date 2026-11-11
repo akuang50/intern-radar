@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-11T07:22:19.464Z",
-  "previousRefreshed": "2026-11-10T20:12:38.532Z",
-  "listingCount": 582,
+  "lastRefreshed": "2026-11-11T19:59:54.337Z",
+  "previousRefreshed": "2026-11-11T07:22:19.464Z",
+  "listingCount": 587,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -107,7 +107,7 @@
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 0,
+      "count": 6,
       "error": null
     },
     {
@@ -179,7 +179,7 @@
     {
       "id": "greenhouse:brex",
       "ok": true,
-      "count": 2,
+      "count": 3,
       "error": null
     },
     {
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 91,
+      "count": 89,
       "error": null
     },
     {
