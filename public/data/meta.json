@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-12T20:38:29.548Z",
-  "previousRefreshed": "2026-11-12T07:51:59.212Z",
-  "listingCount": 524,
+  "lastRefreshed": "2026-11-13T07:28:40.130Z",
+  "previousRefreshed": "2026-11-12T20:38:29.548Z",
+  "listingCount": 534,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,7 +101,7 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 7,
+      "count": 6,
       "error": null
     },
     {
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 12,
+      "error": null
     },
     {
       "id": "greenhouse:spotify",
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 87,
+      "count": 86,
       "error": null
     },
     {
