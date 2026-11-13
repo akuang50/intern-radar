@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-13T07:28:40.130Z",
-  "previousRefreshed": "2026-11-12T20:38:29.548Z",
-  "listingCount": 534,
+  "lastRefreshed": "2026-11-13T20:19:28.211Z",
+  "previousRefreshed": "2026-11-13T07:28:40.130Z",
+  "listingCount": 531,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -65,7 +65,7 @@
     {
       "id": "ashby:ramp",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
@@ -107,7 +107,7 @@
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 7,
+      "count": 6,
       "error": null
     },
     {
@@ -203,7 +203,7 @@
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 26,
+      "count": 24,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 36,
+      "count": 35,
       "error": null
     },
     {
