@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-17T08:41:16.409Z",
-  "previousRefreshed": "2026-11-16T22:43:53.022Z",
-  "listingCount": 582,
+  "lastRefreshed": "2026-11-17T21:30:05.525Z",
+  "previousRefreshed": "2026-11-17T08:41:16.409Z",
+  "listingCount": 576,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -47,7 +47,7 @@
     {
       "id": "ashby:notion",
       "ok": true,
-      "count": 9,
+      "count": 8,
       "error": null
     },
     {
@@ -101,7 +101,7 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
@@ -119,7 +119,7 @@
     {
       "id": "greenhouse:akunacapital",
       "ok": true,
-      "count": 4,
+      "count": 3,
       "error": null
     },
     {
@@ -197,13 +197,13 @@
     {
       "id": "greenhouse:cloudflare",
       "ok": true,
-      "count": 8,
+      "count": 10,
       "error": null
     },
     {
       "id": "greenhouse:coinbase",
       "ok": true,
-      "count": 24,
+      "count": 23,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 35,
+      "count": 34,
       "error": null
     },
     {
@@ -563,7 +563,7 @@
     {
       "id": "greenhouse:togetherai",
       "ok": true,
-      "count": 7,
+      "count": 2,
       "error": null
     },
     {
