@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-18T08:04:19.962Z",
-  "previousRefreshed": "2026-11-17T21:30:05.525Z",
-  "listingCount": 574,
+  "lastRefreshed": "2026-11-18T21:05:31.802Z",
+  "previousRefreshed": "2026-11-18T08:04:19.962Z",
+  "listingCount": 571,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,13 +101,13 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 6,
+      "count": 4,
       "error": null
     },
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 6,
+      "count": 7,
       "error": null
     },
     {
@@ -221,7 +221,7 @@
     {
       "id": "greenhouse:databricks",
       "ok": true,
-      "count": 22,
+      "count": 20,
       "error": null
     },
     {
@@ -269,7 +269,7 @@
     {
       "id": "greenhouse:drweng",
       "ok": true,
-      "count": 9,
+      "count": 8,
       "error": null
     },
     {
@@ -467,7 +467,7 @@
     {
       "id": "greenhouse:roblox",
       "ok": true,
-      "count": 8,
+      "count": 9,
       "error": null
     },
     {
