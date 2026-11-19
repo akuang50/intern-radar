@@ -1,6 +1,6 @@
 {
-  "lastRefreshed": "2026-11-18T21:05:31.802Z",
-  "previousRefreshed": "2026-11-18T08:04:19.962Z",
+  "lastRefreshed": "2026-11-19T08:10:37.704Z",
+  "previousRefreshed": "2026-11-18T21:05:31.802Z",
   "listingCount": 571,
   "llmEnrichment": {
     "used": false,
@@ -275,7 +275,7 @@
     {
       "id": "greenhouse:duolingo",
       "ok": true,
-      "count": 4,
+      "count": 3,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 34,
+      "count": 35,
       "error": null
     },
     {
