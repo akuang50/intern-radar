@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-20T07:53:51.829Z",
-  "previousRefreshed": "2026-11-19T21:10:22.403Z",
-  "listingCount": 577,
+  "lastRefreshed": "2026-11-20T20:55:17.495Z",
+  "previousRefreshed": "2026-11-20T07:53:51.829Z",
+  "listingCount": 573,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,13 +101,13 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 6,
+      "count": 4,
       "error": null
     },
     {
       "id": "greenhouse:airbnb",
       "ok": true,
-      "count": 7,
+      "count": 8,
       "error": null
     },
     {
@@ -197,7 +197,7 @@
     {
       "id": "greenhouse:cloudflare",
       "ok": true,
-      "count": 9,
+      "count": 8,
       "error": null
     },
     {
@@ -221,7 +221,7 @@
     {
       "id": "greenhouse:databricks",
       "ok": true,
-      "count": 21,
+      "count": 19,
       "error": null
     },
     {
@@ -269,7 +269,7 @@
     {
       "id": "greenhouse:drweng",
       "ok": true,
-      "count": 8,
+      "count": 7,
       "error": null
     },
     {
@@ -371,7 +371,7 @@
     {
       "id": "greenhouse:mongodb",
       "ok": true,
-      "count": 5,
+      "count": 6,
       "error": null
     },
     {
