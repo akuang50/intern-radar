@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-20T20:55:17.495Z",
-  "previousRefreshed": "2026-11-20T07:53:51.829Z",
-  "listingCount": 573,
+  "lastRefreshed": "2026-11-21T07:52:28.806Z",
+  "previousRefreshed": "2026-11-20T20:55:17.495Z",
+  "listingCount": 571,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -467,7 +467,7 @@
     {
       "id": "greenhouse:roblox",
       "ok": true,
-      "count": 9,
+      "count": 7,
       "error": null
     },
     {
