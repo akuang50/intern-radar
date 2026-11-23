@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-22T20:08:22.448Z",
-  "previousRefreshed": "2026-11-22T07:38:25.249Z",
-  "listingCount": 571,
+  "lastRefreshed": "2026-11-23T08:26:26.529Z",
+  "previousRefreshed": "2026-11-22T20:08:22.448Z",
+  "listingCount": 570,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -179,7 +179,7 @@
     {
       "id": "greenhouse:brex",
       "ok": true,
-      "count": 3,
+      "count": 2,
       "error": null
     },
     {
