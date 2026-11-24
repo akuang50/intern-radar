@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-23T08:26:26.529Z",
-  "previousRefreshed": "2026-11-22T20:08:22.448Z",
-  "listingCount": 570,
+  "lastRefreshed": "2026-11-24T00:35:33.135Z",
+  "previousRefreshed": "2026-11-23T08:26:26.529Z",
+  "listingCount": 567,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -101,7 +101,7 @@
     {
       "id": "greenhouse:affirm",
       "ok": true,
-      "count": 4,
+      "count": 6,
       "error": null
     },
     {
@@ -197,7 +197,7 @@
     {
       "id": "greenhouse:cloudflare",
       "ok": true,
-      "count": 8,
+      "count": 9,
       "error": null
     },
     {
@@ -467,7 +467,7 @@
     {
       "id": "greenhouse:roblox",
       "ok": true,
-      "count": 7,
+      "count": 6,
       "error": null
     },
     {
@@ -485,7 +485,7 @@
     {
       "id": "greenhouse:scaleai",
       "ok": true,
-      "count": 8,
+      "count": 7,
       "error": null
     },
     {
@@ -545,7 +545,7 @@
     {
       "id": "greenhouse:stripe",
       "ok": true,
-      "count": 35,
+      "count": 34,
       "error": null
     },
     {
@@ -665,7 +665,7 @@
     {
       "id": "lever:palantir",
       "ok": true,
-      "count": 86,
+      "count": 83,
       "error": null
     },
     {
