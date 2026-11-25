@@ -1,7 +1,7 @@
 {
-  "lastRefreshed": "2026-11-24T22:54:22.616Z",
-  "previousRefreshed": "2026-11-24T10:34:08.090Z",
-  "listingCount": 503,
+  "lastRefreshed": "2026-11-25T09:23:45.309Z",
+  "previousRefreshed": "2026-11-24T22:54:22.616Z",
+  "listingCount": 566,
   "llmEnrichment": {
     "used": false,
     "updated": 0
@@ -130,9 +130,9 @@
     },
     {
       "id": "greenhouse:andurilindustries",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 50,
+      "error": null
     },
     {
       "id": "greenhouse:anthropic",
@@ -335,7 +335,7 @@
     {
       "id": "greenhouse:imc",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -526,9 +526,9 @@
     },
     {
       "id": "greenhouse:spacex",
-      "ok": false,
-      "count": 0,
-      "error": "This operation was aborted"
+      "ok": true,
+      "count": 12,
+      "error": null
     },
     {
       "id": "greenhouse:spotify",
